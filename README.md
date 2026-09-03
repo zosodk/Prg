@@ -19,4 +19,4 @@ Du kan køre de enkelte opgaver direkte fra terminalen ved hjælp af Python.
 
 1. Klon dette repository:
    ```bash
-   git clone [indsæt dit repo-link her]
+   git clone https://github.com/zosodk/Prg
