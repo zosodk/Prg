@@ -1,5 +1,5 @@
 countries = ["Germany", "France", "Italy","Spain","Portugal"]
-while len(countries) > 0:
+while len(countries) >= 0:
     #print(countries[0:3])
     print("Lande soom indskrevet på listen: ")
     print(countries)
