@@ -9,9 +9,9 @@ For at gøre det nemt at finde rundt i opgaverne, er alle filer navngivet ud fra
 > `uge<ugenr>opg<opgavenr>.py`
 
 **Eksempler:**
-* `uge36opg1.py` (Løsning til opgave 1 i uge 36)
-* `uge36opg2.py` (Løsning til opgave 2 i uge 36)
-* `uge37opg1.py` (Løsning til opgave 1 i uge 37)
+* `Uge36/uge36opg1.py` (Løsning til opgave 1 i uge 36)
+* `Uge36/uge36opg2.py` (Løsning til opgave 2 i uge 36)
+* `Uge37/uge37opg1.py` (Løsning til opgave 1 i uge 37)
 
 ## 🚀 Sådan kører du filerne
 
