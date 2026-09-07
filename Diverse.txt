@@ -1,0 +1,26 @@
+Sammenligningsoperatorer
+(4 operatorer)
+== : Tjekker om to værdier er fuldstændig ens (f.eks. x == 5).
+!= : Tjekker om to værdier er forskellige fra hinanden.
+<= : Mindre end eller lig med.
+>= : Større end eller lig med.
+3. Kombinerede tildelingsoperatorer
+(12 operatorer)
+Disse bruges til at udføre en matematisk eller logisk beregning og gemme resultatet i variablen på samme tid (f.eks. svarer
+x += 3 til x = x + 3):
++= (Addition)
+-= (Subtraktion)
+*= (Multiplikation)
+/= (Division)
+//= (Heltalsdivision)
+%= (Modulo / restprodukt)
+**= (Potens / eksponent)
+&= (Bitvis OG)
+|= (Bitvis ELLER)
+^= (Bitvis XOR)
+<<= (Bitvis venstreskift)
+>>= (Bitvis højreskift)
+4. Walrus-operatoren (1 operator)
+:= : En specialoperator (introduceret i Python 3.8),
+som gør det muligt både at tildele en værdi til en variabel og returnere værdien
+indeni et udtryk på samme tid (f.eks. i en if- eller while-løkke).
