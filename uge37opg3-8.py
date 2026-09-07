@@ -19,7 +19,6 @@ while len(countries) > 0:
     print("Lande omvendt alfabetisk sorteret: ")
     countries.sort(reverse=True)
     print(countries)
-
     break
 else :
     print("Ingen lande i listen!")
