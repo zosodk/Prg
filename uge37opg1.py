@@ -29,6 +29,12 @@ print("Indtast drikkepengene som procent")
 drikp = input("Drikkepenge % er")
 drikp = int(drikp)
 print("Drikkepenge i procenter er", drikp)
-print("Drikkepengene udgør dette af regningr", bill * (drikp/100))
+tip = bill * (drikp/100)
+print("Drikkepengene udgør dette af regningr", tip)
+total_amount = bill + tip
+print("Regningen er", total_amount)
+guest_amount = total_amount / 3
+print("Hver gæst skal betale", round(guest_amount, 2))
+
 
 
