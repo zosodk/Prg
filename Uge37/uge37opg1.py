@@ -1,28 +1,28 @@
 #Opgaver på klassen
-#En regning på en restaurant skal deles i tre lige store dele inkl drikkepenge.
+# En regning på en restaurant skal deles i tre lige store dele inkl drikkepenge.
+
 # Hent input og konverter med det samme
-people = int(input("Hvor mange personer er I?: "))
-total_price = float(input("Hvad er den samlede pris?: "))
-percent_of_tip = float(input("Indtast drikkepenge i procent (%): "))
+antal_personer = int(input("Hvor mange personer er I?: "))
+samlet_pris = float(input("Hvad er den samlede pris?: "))
+drikkepenge_procent = float(input("Indtast drikkepenge i procent (%): "))
 
 # Beregn det hele
-amount_to_tip = total_price * (percent_of_tip / 100)
-total_inc_tip = total_price + amount_to_tip
-tip_per_guest = amount_to_tip / people
-per_guest = total_inc_tip / people
+drikkepenge_beloeb = samlet_pris * (drikkepenge_procent / 100)
+samlet_inkl_drikkepenge = samlet_pris + drikkepenge_beloeb
+drikkepenge_pr_gaest = drikkepenge_beloeb / antal_personer
+beloeb_pr_gaest = samlet_inkl_drikkepenge / antal_personer
 
 # Byg listen med input og en for løkke med range på antallet af gæster
-names = [input(f"Indtast navnet på gæst {i+1}: ") for i in range(people)]
+navne = [input(f"Indtast navnet på gæst {i+1}: ") for i in range(antal_personer)]
 
 # Udskriv resultater med 2 decimaler
-print(f"\nRegningen lyder på: {total_price:.2f} kr.")
-print(f"Samlede drikkepenge: {amount_to_tip:.2f} kr.")
-print(f"Drikkepenge pr. gæst: {tip_per_guest:.2f} kr.")
-print(f"Samlet beløb inkl. drikkepenge: {total_inc_tip:.2f} kr.\n")
+print(f"\nRegningen lyder på: {samlet_pris:.2f} kr.")
+print(f"Samlede drikkepenge: {drikkepenge_beloeb:.2f} kr.")
+print(f"Drikkepenge pr. gæst: {drikkepenge_pr_gaest:.2f} kr.")
+print(f"Samlet beløb inkl. drikkepenge: {samlet_inkl_drikkepenge:.2f} kr.\n")
 
-#Skriv beløb pr navn
-for name in names:
-    print(f"{name} skal betale: {per_guest:.2f} kr.")
-
+# Skriv beløb pr navn
+for navn in navne:
+    print(f"{navn} skal betale: {beloeb_pr_gaest:.2f} kr.")
 
 
