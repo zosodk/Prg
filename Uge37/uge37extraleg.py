@@ -5,3 +5,4 @@ with open("uge37extraleg.txt", 'w') as fil:
 with open("uge37extraleg.txt", 'r') as fil:
     linjer = [linje.strip() for linje in fil.readlines()]
 print(linjer)
+#Hej
