@@ -27,9 +27,9 @@ while True:
         if console >= 1 and console <= 65535:
             #print(f"Valid portnumber: {console}")
             if console not in common_ports:
-                print(f"Other portnumber: {console}")
+                print(f"Other port number: {console}")
             else:
-                print(f"Common portnumber: {console}")
+                print(f"Common port number: {console}")
         else:
             print(f"Port number out of range (1-65535): {console}")
     else:
