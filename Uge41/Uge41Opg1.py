@@ -17,7 +17,7 @@ def main():
 
   # 2. Opret tabeller (bruger 'IF NOT EXISTS' så scriptet kan køres flere gange)
   cursor.execute("""
-        CREATE TABLE IF NOT EXISTS kunders (
+        CREATE TABLE IF NOT EXISTS kunder (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             navn TEXT NOT NULL,
             email TEXT UNIQUE NOT NULL
@@ -30,22 +30,22 @@ def main():
             kunde_id INTEGER,
             produkt TEXT NOT NULL,
             pris REAL,
-            FOREIGN KEY (kunde_id) REFERENCES kunders (id)
+            FOREIGN KEY (kunde_id) REFERENCES kunder (id)
         )
     """)
 
   # 3. Indsæt lidt data (bruger 'OR IGNORE' for at undgå fejl, hvis de allerede findes)
   cursor.execute(
-      "INSERT OR IGNORE INTO kunders (navn, email) VALUES (?, ?)",
+      "INSERT OR IGNORE INTO kunder (navn, email) VALUES (?, ?)",
       ("Anna Hansen", "anna@example.com"),
   )
   cursor.execute(
-      "INSERT OR IGNORE INTO kunders (navn, email) VALUES (?, ?)",
+      "INSERT OR IGNORE INTO kunder (navn, email) VALUES (?, ?)",
       ("Lars Jensen", "lars@example.com"),
   )
 
   # Hent kunde-id'erne til brug i ordrer
-  cursor.execute("SELECT id, navn FROM kunders")
+  cursor.execute("SELECT id, navn FROM kunder")
   kunder = cursor.fetchall()
 
   # Indsæt test-ordrer baseret på hvem der findes
@@ -70,9 +70,9 @@ def main():
 
   # 4. Udvælg data og put det i en liste af dictionaries (ved hjælp af et JOIN)
   cursor.execute("""
-        SELECT kunders.navn, kunders.email, ordrer.produkt, ordrer.pris
+        SELECT kunder.navn, kunder.email, ordrer.produkt, ordrer.pris
         FROM ordrer
-        JOIN kunders ON ordrer.kunde_id = kunders.id
+        JOIN kunder ON ordrer.kunde_id = kunder.id
     """)
 
   # fetchall() henter alle rækker. Fordi vi satte row_factory, kan vi slå op med kolonnenavn.
