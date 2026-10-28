@@ -1,3 +1,4 @@
+#Kopi af opgaven fra bogen - modificeret til at indeholde min info
 def build_profile(first, last, **user_info):
     """Build a dictionary containing everything we know about a user."""
     user_info['first_name'] = first
