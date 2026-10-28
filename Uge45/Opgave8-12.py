@@ -1,7 +1,12 @@
 #Brugt pizza funktionen fra bogen og omdøbt den til sandwich
+#docstrings
 
 def make_sandwich(*ingredients):
-    """Print the list of ingredients that have been requested."""
+    """
+    Print the list of ingredients that have been requested.
+    input: ingredients - a list of ingredients to be used in the sandwich
+
+    """
     print(f"The sandwich is made with:")
     for ingredient in ingredients:
         print(f"    Ingredient: {ingredient.title()}")

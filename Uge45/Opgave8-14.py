@@ -8,6 +8,13 @@
 
 
 def make_car(manufacturer, model, **kwargs):
+    """
+    A function that stores information about a car in a dictionary.
+    input: manufacturer - the manufacturer of the car
+           model - the model of the car
+           kwargs - additional information about the car
+    output: car_info - a dictionary containing all the information about the car
+    """
     car_info = {'manufacturer': manufacturer, 'model': model}
     for key, value in kwargs.items():
         car_info[key] = value
