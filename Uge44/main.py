@@ -1,28 +1,48 @@
-from functions import connect_to_db, create_table, insert_student, fetch_all_students
+# Et script til at tilføje én ny ”record” i databasen, baseret på input fra brugeren.
+# I skal igen bruge INSERT INTO-kommandoen.
+# Det vil være super hvis der var validering af hvert enkelt felt således at
+# man ikke kan komme til at indsætte en tekst under et felt som kun kan indeholde tal.
 
-def main():
-    # 1. Forbind til databasen
-    conn = connect_to_db("students.db")
+#import sqlite3
+from KhDbFunc import *
+# Opret forbindelse til databasen
 
-    if conn:
-        # 2. Sørg for at tabellen eksisterer
-        create_table(conn)
+conn = connect_to_db("students.db")
+if conn is None:
+    print("Kunne ikke oprette forbindelse til databasen.")
+    exit(1)
+create_table(conn)
+cursor = conn.cursor()
+try:
+    while True:
+        print("=== Opret ny studerende ===")
 
-        # 3. Indsæt en test-elev (hvis du vil prøve det)
-        # Fjern '#' for at aktivere denne linje
-        insert_student(conn, "Anders Jensen", 20, 8.5)
+        # 1. Validering af navn (må ikke være tomt, skal have min. 2 tegn og må ikke indeholde tal)
+        name = validate_studentname()
 
-        # 4. Hent alle elever
-        students = fetch_all_students(conn)
+        # Hvis brugeren tastede 'Q', brydes den ydre løkke og programmet lukker
+        if name.lower() == "q":
+            print("\nAfslutter registrering...")
+            break
 
-        print("\nListe over alle studerende:")
-        for student in students:
-            print(f"ID: {student[0]} | Navn: {student[1]} | Alder: {student[2]} | Karakter: {student[3]}")
+        # 2. Validering af køn (kun specifikke tekstværdier tillades)
+        gender = validate_gender()
 
-        # Luk forbindelsen når vi er færdige
-        conn.close()
-    else:
-        print("Kunne ikke oprette forbindelse.")
+        # 3. Validering af fødselsår (kun heltal i et fornuftigt interval)
+        birth_year = validate_birthyear()
 
-if __name__ == "__main__":
-    main()
+        # 4. Validering af has_former_degree (kun 0 eller 1 som heltal)
+        has_former_degree = validate_degree()
+
+        # 5. Indsæt i databasen med INSERT INTO med cursor.execute()
+        new_id = insert_student(conn, name, gender, birth_year, has_former_degree)
+
+        conn.commit()
+
+        # Vis bekræftelse
+
+        print(f"\nSucces! Studerende oprettet med ID {new_id}:")
+        pass
+finally:
+    conn.close()
+    print("Forbindelsen til databasen er lukket. Hav en god dag!")
