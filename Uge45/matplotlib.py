@@ -15,7 +15,7 @@ with open(filename, "r", encoding="utf-8") as fil:
             animals.append(parts[0].strip())
             amounts.append(int(parts[1].strip()))
 
-plt.pie(amounts, labels=animals,autopct="%1.1f%%", shadow=False, startangle=90)
+plt.pie(amounts, labels=animals,autopct="%1.2f%%", shadow=False, startangle=90)
 plt.title("Animals")
 #plt.xlabel("Animals")
 #plt.ylabel("Amount")

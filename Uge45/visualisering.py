@@ -10,3 +10,5 @@ values=[12, 23, 32]
 
 fig = go.Figure(data=go.Bar(x=labels, y=values, marker_color=["black", "grey", "white"]))
 fig.show()
+
+#test
